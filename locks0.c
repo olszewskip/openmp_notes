@@ -30,6 +30,10 @@ int main() {
         omp_unset_lock(&histogram_locks[bucket]);
     }
 
+    for (int i = 0; i<kBuckets; i++) {
+        omp_destroy_lock(&histogram_locks[i]);
+    }
+
     printf("%d, %d, %d\n", histogram[0], histogram[1], histogram[2]);
 
 }
